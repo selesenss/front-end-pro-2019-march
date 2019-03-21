@@ -55,3 +55,34 @@ console.log(listAll);
 console.log(listAll);
 listAll[10] = false;
 console.log(listAll);
+
+
+// -----------------------------------
+
+
+A = [];
+A.length = 20;
+B = [];
+
+for(i = 0; i < A.length; i++){
+    A[i] = Math.floor(Math.random()*10);
+
+
+
+    // A[i]
+    isPrime = true;
+
+    for(k = 2; k < A[i]; k++){
+        if(A[i] % k == 0){
+            isPrime = false;
+            break;
+        }
+    }
+
+    if(isPrime && A[i] > 1){
+        B[B.length] = A[i];
+    }
+}
+
+console.log('A -> ', A);
+console.log('B -> ', B);
