@@ -27,7 +27,11 @@ data['val'] = 250;
 // ----------------------------------------
 
 for(var key in data){
-    console.log(key, '------------', data[key]);
+    console.log(
+        key,
+        '------------', 
+        data[key]
+    );
 
     if (key == 'x') {
         console.log('XXX')
