@@ -64,7 +64,7 @@ function iterateAll(){
     console.log(this, arguments.callee === this.iterateAll, arguments.callee.name);
     for(var key in this){
         // if(key === 'iterateAll') continue;
-        if(this[key] === iterateAll) continue;
+        if(this[key] === arguments.callee) continue;
 
         console.log(key) // this[key]
 
@@ -72,7 +72,7 @@ function iterateAll(){
 }
 
 // -------------------------------
-var FOFO = struct.iterateAll;
+// var FOFO = struct.iterateAll;
 
 // FOFO();
 struct.iterateAll();
