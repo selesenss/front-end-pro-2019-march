@@ -1,0 +1,22 @@
+.test-block {
+    border: 1px solid #000;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+}
+
+.test-block--f {
+    background: #000;
+    top: 0;
+    left: 0;
+}
+.test-block--f {
+    background: #ff0000;
+    top: 200px;
+    left: 200px;
+}
+.test-block--t {
+    background: #ccc;
+    top: 400px;
+    left: 400px;
+}
