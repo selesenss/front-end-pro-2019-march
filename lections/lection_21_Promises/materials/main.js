@@ -45,9 +45,9 @@ var example = new Promise(function(resolve, reject){
 //     .catch();
 
 // //----------------------------
-// function getRandom(from, to){
-//     return Math.floor(Math.random()*(to - from) + from);
-// }
+function getRandom(from, to){
+    return Math.floor(Math.random()*(to - from) + from);
+}
 
 //     new Promise(function(resolve, reject){
 //         setTimeout(function(){
@@ -116,22 +116,22 @@ function asyncExampleThree(resolve, reject){
 }
 
 
-// new Promise(asyncExampleOne)
-//     .then(function(value){
-//         console.log(value);
-//         return new Promise(asyncExampleTwo);
-//     })
-//     .then(function(value){
-//         console.log(value);
-//         return new Promise(asyncExampleTwo);
-//     })
-//     .then(function(value){
-//         console.log(value);
-//         return new Promise(asyncExampleOne);
-//     })
-//     .then(function(value){
-//         console.log(value);
-//     })
+new Promise(asyncExampleOne)
+    .then(function(value){
+        console.log(value);
+        return new Promise(asyncExampleTwo);
+    })
+    .then(function(value){
+        console.log(value);
+        return new Promise(asyncExampleTwo);
+    })
+    .then(function(value){
+        console.log(value);
+        return new Promise(asyncExampleOne);
+    })
+    .then(function(value){
+        console.log(value);
+    })
 
 
 var listOfAsync = [
@@ -152,3 +152,20 @@ Promise
         console.error(err);
     });
 
+
+
+function getPromise(){
+    return new Promise(function(resolve, reject){
+        setTimeout(function(){
+            resolve();
+        }, getRandom(500, 1500))
+    })
+}
+
+Promise.all([
+    getPromise(),
+    getPromise(),
+    getPromise()
+]).then(function(){
+    runAfter([function(){}, function(){}, function(){}]);
+})
