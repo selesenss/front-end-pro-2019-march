@@ -6,7 +6,7 @@
             :key="bag.amount" 
             :class="{'full': bag.isFull}"
             :style="{'width': width+'px', height: bag.sum+'px'}">
-            {{bag.sum}}
+            {{getBagSum(bag)}}
         </div>
     </div>
 </template>
@@ -22,6 +22,11 @@ export default {
         width: {
             type: Number,
             default: 100
+        }
+    },
+    methods: {
+        getBagSum(bag) {
+            return bag.sum || '';
         }
     },
 }
