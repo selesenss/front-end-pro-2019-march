@@ -13,6 +13,9 @@
 </template>
 
 <script>
+import API from './../services/API.service.js'
+import {ACTION} from './../constants/API.constants'
+
 export default {
     name: "Coins",
     props: {
@@ -49,6 +52,9 @@ export default {
         getState(){
             return this.$store.state;
         }
+    },
+    created(){
+        API.getData(ACTION.DATA).then(console.log)
     }
 }
 </script>

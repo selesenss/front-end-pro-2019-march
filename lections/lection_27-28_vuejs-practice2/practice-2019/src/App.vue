@@ -4,6 +4,8 @@
     <CA :handler="clickMe"/>
     <CB :handler="clickMe"/> -->
     <hr>
+    {{list}}
+    <hr>
     <Coins :list="getters.coins" :action="onClickCoin" :width="width"/>
     <Bags :list="getters.coins" :width="width"/>
     <hr>
@@ -13,6 +15,7 @@
     Negative: {{getters.getNegativeElems}}
     <hr>
     <button @click="storeUpdateList">Update sotre list</button>
+    
   </div>
 </template>
 
@@ -22,7 +25,9 @@ import CB from './components/componentB.vue'
 import Coins from './components/Coins.vue'
 import Bags from './components/Bags.vue'
 import Resolver from './services/Resolver.service.js'
+import API from './services/API.service.js'
 import { mapMutations, mapActions } from 'vuex'
+import {ACTION} from './constants/API.constants'
 
 export default {
   name: 'app',
@@ -37,7 +42,8 @@ export default {
     return {
       counter: 0,
       width: 150,
-      getters: this.$store.getters
+      getters: this.$store.getters,
+      list: []
     }
   },
   methods: {
@@ -48,6 +54,7 @@ export default {
       return Resolver.isBugFull(coin);
     },
     onClickStore(){
+      API.getData([ACTION.USERS]);
       // this.$store.state.x += 600;
       // this.$store.commit('updateX', 600);
       // this.$store.commit({
@@ -94,6 +101,11 @@ export default {
   },
   created(){
     this.initCoins();
+    API
+      .getData([ACTION.DATA, ACTION.USERS])
+      .then(({users}) => {
+        this.list = users;
+      })
   }
 }
 </script>
