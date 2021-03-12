@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- <div id="app">
+        Hello {{ x + y }}
+        <hr>
+        {{ list }}
+        {{ info.adress }}
+        <span>
+            I live in {{ info.city }}
+        </span>
+        <hr>
+        {{ message }}
+    </div>  -->
+
+  <!-- <hr />
+    <div id="app-2">
+        {{ className }}
+        <span 
+            alt="example"
+            v-bind:title="className"
+            v-bind:style="appearence  + 'font-size:' + value*3 + 'px'">
+            span inner text
+        </span>
+        <span 
+            :style="appearence + 'font-size:' + value + 'px'"
+            :title="appearence">
+            span inner text
+        </span>
+    </div>
+
+    <hr /> -->
+
+    <!-- <div id="app-3">
+        <span v-if="seen">Сейчас меня видно</span>
+    </div> -->
+ 
+    <!-- <hr />
+
+    <div id="app-4">
+        <ol>    
+            <li v-for="item in list" v-if="item.text">
+                {{ item.text }}
+            </li>
+            {{ item }}
+        </ol>
+    </div> -->
+
+    <hr>
+    <div id="app-5">
+        <span>
+            {{ calculate(8) }}
+            counter: {{counter}}
+
+            {{ Click(3) }}
+        </span>
+        <button v-on:click="Click(counter, $event)">
+            Click
+        </button>
+
+        <ul>
+            <li v-for="element in list">
+                <button 
+                    @click="Click(element, 1), Click(element, 2)"
+                    @contextmenu.prevent="Click(element)"
+                >Click</button>
+            </li>
+        </ul>
+    </div>
+
+    <hr>
+
+     <div id="app-6">
+        <p v-if="switcher">{{ message }}</p>
+        <!-- <input :value="message"> -->
+        <input v-model="message">
+        <input type="checkbox" v-model="switcher">
+        switcher: {{ switcher }}
+    </div>
+<!--
+    <hr>
+
+    <hr>
+
+    <hr>  -->
+
+    <!-- <hr>
+    -->
+    <script src="./main.js"></script>
+</body>
+</html>
